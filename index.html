@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Interactivo de Nichos Emprendedores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals - Slate & Teal -->
+    <!-- Application Structure Plan: Se ha diseñado una SPA con navegación por pestañas (Éxito, Rentabilidad, Riesgo, Recomendaciones). Esta estructura permite al usuario comparar directamente las facetas clave del emprendimiento, en lugar de leer un informe lineal. Fomenta la exploración y la síntesis de información al agrupar los datos y los insights por objetivo (dónde tener éxito, cómo ganar más, qué evitar), lo que mejora la usabilidad y la retención de la información clave. -->
+    <!-- Visualization & Content Choices: 
+        - Éxito: Tarjetas interactivas para nichos y tendencias. Objetivo: Organizar y destacar información cualitativa. Justificación: Las tarjetas permiten una presentación visualmente atractiva y escaneable de los sectores clave y las fuerzas del mercado.
+        - Rentabilidad: Gráfico de barras horizontales (Chart.js). Objetivo: Comparar márgenes de beneficio. Justificación: Un gráfico de barras es ideal para comparar valores cuantitativos entre categorías discretas, haciendo obvio qué sectores son más rentables.
+        - Riesgo: Gráfico de barras verticales (Chart.js) con botones interactivos para cambiar el período (1, 5, 10 años). Objetivo: Comparar tasas de fracaso de forma dinámica. Justificación: La interactividad permite al usuario explorar los datos en diferentes dimensiones (tiempo) sin saturar la pantalla, facilitando el análisis de riesgos a corto y largo plazo.
+        - Todas las visualizaciones se implementan con Canvas a través de Chart.js, sin usar SVG ni Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+        .tab-btn.active {
+            border-color: #0d9488;
+            color: #0d9488;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900">Análisis de Nichos Emprendedores</h1>
+            <p class="mt-2 text-lg text-slate-600">Explora dónde están las oportunidades, la rentabilidad y los riesgos.</p>
+        </header>
+
+        <nav class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-sm border-b border-slate-200 mb-8">
+            <div class="flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-8 text-sm md:text-base">
+                <button data-tab="exito" class="tab-btn py-4 px-2 sm:px-4 border-b-2 border-transparent hover:border-teal-500 hover:text-teal-600 transition-colors duration-300 active">🚀 Éxito</button>
+                <button data-tab="rentabilidad" class="tab-btn py-4 px-2 sm:px-4 border-b-2 border-transparent hover:border-teal-500 hover:text-teal-600 transition-colors duration-300">💰 Rentabilidad</button>
+                <button data-tab="riesgo" class="tab-btn py-4 px-2 sm:px-4 border-b-2 border-transparent hover:border-teal-500 hover:text-teal-600 transition-colors duration-300">⚠️ Riesgo</button>
+                <button data-tab="recomendaciones" class="tab-btn py-4 px-2 sm:px-4 border-b-2 border-transparent hover:border-teal-500 hover:text-teal-600 transition-colors duration-300">💡 Claves</button>
+            </div>
+        </nav>
+
+        <main>
+            <section id="exito" class="tab-content space-y-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-center mb-2 text-slate-900">Nichos con Mayor Éxito y Potencial</h2>
+                    <p class="text-center text-slate-600 max-w-3xl mx-auto">Estos sectores demuestran un alto potencial de crecimiento y una notable prevalencia de emprendimientos exitosos, impulsados por la tecnología y nuevas demandas de los consumidores. La clave es adaptarse a las tendencias y ofrecer valor especializado.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-700 mb-2">Tecnología y Digitalización</h3>
+                        <p class="text-slate-600 text-sm">IA generativa, SaaS, ciberseguridad y soluciones en la nube. La automatización y la optimización de procesos son cruciales para las empresas, creando una demanda constante.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-700 mb-2">Salud y Bienestar</h3>
+                        <p class="text-slate-600 text-sm">Telemedicina, apps de mindfulness, nutrición y productos de cuidado personal. El mercado superará los 8 billones de dólares en 2027, con un enfoque creciente en la salud mental y física.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-700 mb-2">Productos para Mascotas</h3>
+                        <p class="text-slate-600 text-sm">Comida natural, accesorios especializados y tecnología como rastreadores GPS. El vínculo emocional impulsa un gasto considerable en productos de alta calidad.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-700 mb-2">Comercio Electrónico Especializado</h3>
+                        <p class="text-slate-600 text-sm">Nichos como ropa, joyería, equipos de entrenamiento y productos de belleza. El éxito radica en encontrar un público específico y ofrecer productos con altos márgenes.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-700 mb-2">Sostenibilidad y Consumo Consciente</h3>
+                        <p class="text-slate-600 text-sm">Productos ecológicos, veganos, de segunda mano o con larga vida útil. Los consumidores están dispuestos a cambiar sus hábitos para reducir el impacto ambiental.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <h3 class="text-lg font-semibold text-teal-700 mb-2">Economía del Conocimiento (Arg)</h3>
+                        <p class="text-slate-600 text-sm">Especialmente Software (SSI) y Servicios Profesionales (SEPT) orientados a la exportación. Ofrecen resiliencia frente a la economía local y acceso a mercados globales.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rentabilidad" class="tab-content hidden space-y-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-center mb-2 text-slate-900">Nichos Más Rentables</h2>
+                    <p class="text-center text-slate-600 max-w-3xl mx-auto">La rentabilidad se mide por el margen de beneficio neto: el porcentaje de cada euro de venta que se convierte en ganancia. Los sectores tecnológicos y de servicios lideran gracias a su escalabilidad y bajos costos marginales.</p>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                     <div class="chart-container">
+                        <canvas id="rentabilidadChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-500 mt-4">Margen de Beneficio Neto Promedio por Sector. Haz clic en las barras para más detalles.</p>
+                </div>
+            </section>
+
+            <section id="riesgo" class="tab-content hidden space-y-12">
+                <div>
+                     <h2 class="text-2xl font-bold text-center mb-2 text-slate-900">Nichos con Mayor Riesgo</h2>
+                    <p class="text-center text-slate-600 max-w-3xl mx-auto">Comprender por qué fracasan las empresas es clave para mitigar riesgos. Estos sectores enfrentan alta competencia, costos elevados y una gran complejidad operativa. El éxito en ellos requiere una gestión excepcional.</p>
+                </div>
+
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <span class="text-slate-600 mr-4">Ver tasa de fracaso a:</span>
+                        <div class="inline-flex rounded-md shadow-sm" role="group">
+                            <button type="button" data-period="1" class="period-btn bg-teal-600 text-white py-2 px-4 text-sm font-medium rounded-l-lg hover:bg-teal-700">1 Año</button>
+                            <button type="button" data-period="5" class="period-btn bg-white text-slate-900 py-2 px-4 text-sm font-medium hover:bg-slate-100">5 Años</button>
+                            <button type="button" data-period="10" class="period-btn bg-white text-slate-900 py-2 px-4 text-sm font-medium rounded-r-md hover:bg-slate-100">10 Años</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="riesgoChart"></canvas>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-center mb-6 text-slate-900">Causas Comunes de Fracaso</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                         <div class="bg-white p-6 rounded-xl border border-amber-200">
+                            <h4 class="font-semibold text-amber-800">Falta de Necesidad del Mercado</h4>
+                            <p class="text-slate-600 text-sm mt-1">Crear un producto que nadie quiere o que no resuelve un problema real. (42% de los casos).</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-amber-200">
+                            <h4 class="font-semibold text-amber-800">Insuficiencia de Capital</h4>
+                            <p class="text-slate-600 text-sm mt-1">Quedarse sin dinero es una de las principales causas. Mala gestión del flujo de caja. (29% de los casos).</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-amber-200">
+                            <h4 class="font-semibold text-amber-800">Competencia Intensa</h4>
+                            <p class="text-slate-600 text-sm mt-1">Ser superado por competidores más grandes o con mejores estrategias. (19% de los casos).</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-amber-200">
+                            <h4 class="font-semibold text-amber-800">Equipo Inadecuado</h4>
+                            <p class="text-slate-600 text-sm mt-1">Falta de habilidades, mala química o conflictos internos sin resolver. (23% de los casos).</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-amber-200">
+                            <h4 class="font-semibold text-amber-800">Mala Gestión Operativa</h4>
+                            <p class="text-slate-600 text-sm mt-1">Problemas con la logística, atención al cliente deficiente o falta de estrategia de marketing.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-amber-200">
+                            <h4 class="font-semibold text-amber-800">Falta de un Plan de Negocio</h4>
+                            <p class="text-slate-600 text-sm mt-1">No tener objetivos claros, no conocer el mercado ni a los competidores.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="recomendaciones" class="tab-content hidden space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-center mb-2 text-slate-900">Claves para el Éxito Emprendedor</h2>
+                    <p class="text-center text-slate-600 max-w-3xl mx-auto">Para maximizar las posibilidades de éxito, los emprendedores deben adoptar un enfoque estratégico que combine innovación tecnológica, propósito y una gestión impecable. Aquí se resumen las recomendaciones clave.</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex items-start space-x-4">
+                        <span class="text-xl">1.</span>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Priorizar Nichos Tecnológicos y de Servicios</h3>
+                            <p class="text-slate-600 text-sm">Enfócate en SaaS, telemedicina o fintech por su alta escalabilidad y márgenes de beneficio. La inversión en IA es fundamental.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex items-start space-x-4">
+                        <span class="text-xl">2.</span>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Integrar Sostenibilidad y Propósito</h3>
+                            <p class="text-slate-600 text-sm">Adopta criterios ESG. Los consumidores conscientes y los inversores valoran el impacto social y ambiental positivo.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex items-start space-x-4">
+                        <span class="text-xl">3.</span>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Dominar la Experiencia del Cliente</h3>
+                            <p class="text-slate-600 text-sm">Ofrece experiencias hiperpersonalizadas y un servicio impecable para diferenciarte en mercados saturados.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex items-start space-x-4">
+                        <span class="text-xl">4.</span>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Implementar una Gestión Financiera Rigurosa</h3>
+                            <p class="text-slate-600 text-sm">Asegura financiamiento adecuado y monitorea el flujo de caja constantemente para evitar la principal causa de fracaso.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex items-start space-x-4">
+                        <span class="text-xl">5.</span>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Construir Equipos Sólidos y Adaptables</h3>
+                            <p class="text-slate-600 text-sm">Invierte en contratar y retener el talento adecuado. Un buen equipo es un activo crítico.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-sm flex items-start space-x-4">
+                        <span class="text-xl">6.</span>
+                        <div>
+                            <h3 class="font-semibold text-slate-800">Navegar los Desafíos Locales (Arg)</h3>
+                            <p class="text-slate-600 text-sm">Busca apoyo en el ecosistema emprendedor y considera modelos de negocio orientados a la exportación para mitigar riesgos macroeconómicos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-16 border-t border-slate-200 pt-6">
+            <p class="text-sm text-slate-500">Aplicación interactiva generada a partir del informe "Análisis de Nichos Emprendedores: Éxito, Rentabilidad y Riesgos".</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+        const periodBtns = document.querySelectorAll('.period-btn');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                contents.forEach(content => {
+                    if (content.id === target) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        const rentabilidadData = {
+            labels: ['Software (SaaS)', 'Telemedicina', 'Energías Renovables', 'E-commerce de Lujo', 'Fintech', 'Semiconductores', 'B. Raíces Comerciales', 'Redes 5G', 'Materiales Compuestos', 'Consumo Sostenible'],
+            datasets: [{
+                label: 'Margen de Beneficio Neto (%)',
+                data: [25, 20, 15, 12, 10, 9, 8, 7, 6, 5],
+                backgroundColor: 'rgba(13, 148, 136, 0.7)',
+                borderColor: 'rgba(13, 148, 136, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(13, 148, 136, 1)'
+            }]
+        };
+
+        const rentabilidadChartCtx = document.getElementById('rentabilidadChart').getContext('2d');
+        const rentabilidadChart = new Chart(rentabilidadChartCtx, {
+            type: 'bar',
+            data: rentabilidadData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Márgenes de Beneficio Neto por Sector',
+                        font: { size: 16 }
+                    },
+                     tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += context.parsed.x + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Margen de Beneficio Neto (%)'
+                        }
+                    },
+                    y: {
+                         ticks: {
+                            autoSkip: false
+                        }
+                    }
+                }
+            }
+        });
+
+        const riesgoData = {
+            labels: ['Minería/Petróleo', 'Serv. Admin.', 'Información', 'Arte/Recreación', 'Serv. Profesionales', 'Transporte', 'Restauración', 'Comercio Minorista'],
+            datasets: [
+                {
+                    label: 'Fracaso a 1 año (%)',
+                    data: [25.6, 20.9, 20.8, 18.9, 17.1, 16.2, 14.7, 12.4],
+                },
+                {
+                    label: 'Fracaso a 5 años (%)',
+                    data: [58.5, 49.1, 51.7, 42.6, 47.7, 47.0, 40.4, 38.1],
+                },
+                {
+                    label: 'Fracaso a 10 años (%)',
+                    data: [74.8, 66.9, 73.3, 66.5, 70.3, 67.3, 64.3, 60.6],
+                },
+            ]
+        };
+        
+        const riesgoChartCtx = document.getElementById('riesgoChart').getContext('2d');
+        let riesgoChart = new Chart(riesgoChartCtx, {
+            type: 'bar',
+            data: {
+                labels: riesgoData.labels,
+                datasets: [{
+                    ...riesgoData.datasets[0],
+                    backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                    borderColor: 'rgba(245, 158, 11, 1)',
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(245, 158, 11, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: true,
+                        text: 'Tasa de Fracaso a 1 Año por Industria',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Tasa de Fracaso (%)'
+                        }
+                    },
+                    x: {
+                         ticks: {
+                            autoSkip: false,
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+
+        periodBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const period = parseInt(btn.getAttribute('data-period'));
+                let datasetIndex;
+                switch(period) {
+                    case 1: datasetIndex = 0; break;
+                    case 5: datasetIndex = 1; break;
+                    case 10: datasetIndex = 2; break;
+                }
+
+                riesgoChart.data.datasets[0] = {
+                    ...riesgoData.datasets[datasetIndex],
+                    backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                    borderColor: 'rgba(245, 158, 11, 1)',
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(245, 158, 11, 1)'
+                };
+                riesgoChart.options.plugins.title.text = `Tasa de Fracaso a ${period} Año(s) por Industria`;
+                riesgoChart.update();
+
+                periodBtns.forEach(b => {
+                    b.classList.remove('bg-teal-600', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-900');
+                });
+                btn.classList.add('bg-teal-600', 'text-white');
+                btn.classList.remove('bg-white', 'text-slate-900');
+            });
+        });
+
+    </script>
+</body>
+</html>
