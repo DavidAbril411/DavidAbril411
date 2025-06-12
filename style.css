@@ -372,3 +372,15 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
+/* ... (El código CSS que me proporcionaste anteriormente se mantiene sin cambios) ... */
+
+/* Puedes añadir un estilo específico para el texto dentro de esta sección si quieres */
+.category-section.glossary p {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+.category-section.glossary strong {
+    color: var(--accent-color);
+}
+

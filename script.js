@@ -188,23 +188,58 @@ const initialStack = [
             { name: "WebAssembly (Wasm)", level: 0, id: "emerging-wasm" },
             { name: "Strapi.io", level: 0, id: "emerging-strapi" },
         ]
+    },
+    // NUEVA CATEGORÍA: Glosario de Niveles
+    {
+        name: "Glosario de Niveles", id: "glossary-cat",
+        skills: [], // Sin habilidades interactivas
+        isGlossary: true,
+        glossaryContent: `
+            <p><strong>0: Desconocido / No aplicable</strong></p>
+            <p>No tengo conocimiento alguno sobre esta tecnología o concepto, o no es relevante para mis objetivos actuales.</p>
+            <p><strong>1: Nociones Básicas / Reconocimiento</strong></p>
+            <p>Sé que existe y para qué sirve a un nivel muy superficial. Podría reconocerlo en una conversación o en un documento, pero no tengo experiencia práctica ni comprensión de sus detalles.</p>
+            <p><strong>2: Familiaridad / Lectura General</strong></p>
+            <p>He leído sobre el tema y entiendo sus principios fundamentales y su propósito. Podría buscar información sobre cómo usarlo o implementarlo, pero no tengo experiencia práctica.</p>
+            <p><strong>3: Explorador / Primeros Pasos</strong></p>
+            <p>He hecho algún tutorial básico o he explorado la tecnología/concepto en un entorno de pruebas simple. Puedo realizar tareas muy básicas siguiendo ejemplos, pero mi comprensión es limitada y mi capacidad de resolución de problemas es baja.</p>
+            <p><strong>4: Uso Básico / Proyectos Pequeños (con asistencia)</strong></p>
+            <p>He utilizado esta tecnología/concepto en algún proyecto pequeño o personal, a menudo siguiendo tutoriales o con la ayuda de herramientas (como IA para sintaxis) para superar bloqueos. Puedo implementar funcionalidades básicas pero necesito documentación frecuente o asistencia.</p>
+            <p><strong>5: Usuario Capaz / Desarrollo con Guía</strong></p>
+            <p>Puedo usar esta tecnología/concepto para desarrollar funcionalidades estándar en un proyecto. Entiendo la mayoría de sus características principales y puedo resolver problemas comunes con documentación. Podría trabajar en un equipo bajo la guía de un senior.</p>
+            <p><strong>6: Competente / Desarrollo Independiente</strong></p>
+            <p>Puedo desarrollar y mantener aplicaciones o funcionalidades complejas utilizando esta tecnología/concepto de forma independiente. Entiendo sus mejores prácticas y puedo depurar problemas de manera efectiva. Estoy listo para contribuir significativamente en un equipo.</p>
+            <p><strong>7: Avanzado / Resolución de Problemas Complejos</strong></p>
+            <p>Tengo experiencia sólida en el desarrollo y depuración de sistemas complejos con esta tecnología/concepto. Puedo diseñar soluciones eficientes, optimizar el rendimiento y resolver problemas no triviales de forma autónoma. Contribuyo con ideas de mejora.</p>
+            <p><strong>8: Experto / Liderazgo Técnico / Mentoría</strong></p>
+            <p>Soy considerado un experto en esta tecnología/concepto. Puedo liderar proyectos, diseñar arquitecturas robustas, mentorizar a otros desarrolladores, y resolver los problemas más desafiantes. Conozco las entrañas y las limitaciones.</p>
+            <p><strong>9: Especialista / Referente de la Industria</strong></p>
+            <p>Soy un referente reconocido en esta área. He contribuido a la comunidad (charlas, artículos, código abierto), he liderado equipos grandes o proyectos críticos, y mi conocimiento es excepcionalmente profundo y actualizado.</p>
+            <p><strong>10: Maestro / Visionario</strong></p>
+            <p>He creado o contribuido significativamente al desarrollo de la propia tecnología/concepto, o he realizado avances pioneros en su aplicación. Mi nivel de impacto y conocimiento es de élite mundial. (Este nivel es raro y se aplica a los creadores de tecnologías o a investigadores de punta).</p>
+        `
     }
 ];
 // Función para guardar el stack en localStorage
 function saveStack(stack) {
-    localStorage.setItem('myTechStack', JSON.stringify(stack));
+    // No guardamos el contenido del glosario en localStorage para evitar redundancia
+    const stackToSave = stack.map(cat => ({
+        ...cat,
+        glossaryContent: undefined // Excluir esta propiedad del guardado
+    }));
+    localStorage.setItem('myTechStack', JSON.stringify(stackToSave));
 }
 // Función para cargar el stack de localStorage
 function loadStack() {
     const storedStack = localStorage.getItem('myTechStack');
-    // Asegurarse de que el stack cargado tenga todos los IDs y nombres si la estructura cambia
     if (storedStack) {
         try {
             const parsedStack = JSON.parse(storedStack);
-            // Fusionar con initialStack para añadir nuevas habilidades si el JSON almacenado es viejo
+            // Fusionar con initialStack para añadir nuevas habilidades/categorías
+            // y asegurar que el glosario siempre tenga su contenido estático
             return initialStack.map(cat => {
                 const storedCat = parsedStack.find(sCat => sCat.id === cat.id);
-                if (storedCat) {
+                if (storedCat && !cat.isGlossary) { // Si no es glosario, fusionar niveles
                     return {
                         ...cat,
                         skills: cat.skills.map(skill => {
@@ -213,7 +248,7 @@ function loadStack() {
                         })
                     };
                 }
-                return cat;
+                return cat; // Para glosario o nuevas categorías, usar datos iniciales
             });
         }
         catch (e) {
@@ -225,11 +260,9 @@ function loadStack() {
 }
 // Estado actual del stack
 let currentStack = loadStack();
-let activeTabId = currentStack[0].id; // La primera categoría activa por defecto
-// Función para crear un elemento de habilidad (item de la lista)
-// (Mantener el código de script.ts idéntico al que te proporcioné en el mensaje anterior)
-// ... (interface Skill, interface SkillCategory, initialStack, saveStack, loadStack, currentStack, activeTabId) ...
-// Función para crear un elemento de habilidad (item de la lista)
+// Establecer la primera pestaña activa, o el glosario si es la primera
+let activeTabId = currentStack[0].id;
+// Función para crear un elemento de habilidad individual
 function createSkillElement(skill) {
     const skillDiv = document.createElement('div');
     skillDiv.className = 'skill-item';
@@ -242,7 +275,6 @@ function createSkillElement(skill) {
     controlsDiv.className = 'skill-level-controls';
     const decreaseButton = document.createElement('button');
     decreaseButton.className = 'level-button decrease';
-    // Usar icono de Font Awesome
     const decreaseIcon = document.createElement('i');
     decreaseIcon.className = 'fas fa-minus';
     decreaseButton.appendChild(decreaseIcon);
@@ -254,7 +286,6 @@ function createSkillElement(skill) {
     controlsDiv.appendChild(levelDisplay);
     const increaseButton = document.createElement('button');
     increaseButton.className = 'level-button increase';
-    // Usar icono de Font Awesome
     const increaseIcon = document.createElement('i');
     increaseIcon.className = 'fas fa-plus';
     increaseButton.appendChild(increaseIcon);
@@ -270,13 +301,22 @@ function renderCategoryContent(category) {
     const h2 = document.createElement('h2');
     h2.textContent = category.name;
     sectionDiv.appendChild(h2);
-    // Nuevo contenedor para las habilidades que usará CSS Grid
-    const skillsGridContainer = document.createElement('div');
-    skillsGridContainer.className = 'skills-grid';
-    category.skills.forEach(skill => {
-        skillsGridContainer.appendChild(createSkillElement(skill));
-    });
-    sectionDiv.appendChild(skillsGridContainer); // Añadir el contenedor de grid a la sección
+    if (category.isGlossary && category.glossaryContent) {
+        // Si es la sección de glosario, inyecta el HTML directamente
+        sectionDiv.classList.add('glossary'); // Añadir clase para estilos específicos
+        const glossaryDiv = document.createElement('div');
+        glossaryDiv.innerHTML = category.glossaryContent;
+        sectionDiv.appendChild(glossaryDiv);
+    }
+    else {
+        // Si es una categoría normal, crea la grid de habilidades
+        const skillsGridContainer = document.createElement('div');
+        skillsGridContainer.className = 'skills-grid';
+        category.skills.forEach(skill => {
+            skillsGridContainer.appendChild(createSkillElement(skill));
+        });
+        sectionDiv.appendChild(skillsGridContainer);
+    }
     return sectionDiv;
 }
 // Función para renderizar los botones de las pestañas
@@ -284,13 +324,13 @@ function renderTabButtons() {
     const tabButtonsContainer = document.querySelector('.tab-buttons');
     if (!tabButtonsContainer)
         return;
-    tabButtonsContainer.innerHTML = ''; // Limpia botones existentes
+    tabButtonsContainer.innerHTML = '';
     currentStack.forEach(category => {
         const button = document.createElement('button');
         button.className = `tab-button ${category.id === activeTabId ? 'active' : ''}`;
-        // Mostrar solo el número de la categoría en el botón
-        const categoryNumberMatch = category.name.match(/^[IVX]+\./);
-        button.textContent = categoryNumberMatch ? categoryNumberMatch[0] : category.name;
+        // Mostrar "Glosario" completo, o el número si es una categoría de habilidades
+        const buttonText = category.isGlossary ? category.name : (category.name.match(/^[IVX]+\./) ? category.name.match(/^[IVX]+\./)[0] : category.name);
+        button.textContent = buttonText;
         button.dataset.categoryId = category.id;
         button.onclick = () => switchTab(category.id);
         tabButtonsContainer.appendChild(button);
@@ -299,14 +339,14 @@ function renderTabButtons() {
 // Función para cambiar de pestaña
 function switchTab(categoryId) {
     activeTabId = categoryId;
-    renderStackContent(); // Renderiza solo el contenido de la pestaña activa
-    renderTabButtons(); // Actualiza el estado activo de los botones
+    renderStackContent();
+    renderTabButtons();
 }
 // Función principal para renderizar el contenido del stack (solo la pestaña activa)
 function renderStackContent() {
     const container = document.getElementById('stack-container');
     if (container) {
-        container.innerHTML = ''; // Limpia el contenido existente
+        container.innerHTML = '';
         const activeCategory = currentStack.find(cat => cat.id === activeTabId);
         if (activeCategory) {
             container.appendChild(renderCategoryContent(activeCategory));
@@ -316,26 +356,41 @@ function renderStackContent() {
 // Función para actualizar el nivel de una habilidad
 function updateSkillLevel(skillId, change) {
     let updated = false;
-    currentStack = currentStack.map(category => ({
-        ...category,
-        skills: category.skills.map(skill => {
-            if (skill.id === skillId) {
-                const newLevel = Math.max(0, Math.min(10, skill.level + change));
-                if (newLevel !== skill.level) {
-                    updated = true;
-                    return { ...skill, level: newLevel };
-                }
-            }
-            return skill;
-        })
-    }));
+    currentStack = currentStack.map(category => {
+        // Solo actualizar si no es una categoría de glosario
+        if (!category.isGlossary) {
+            return {
+                ...category,
+                skills: category.skills.map(skill => {
+                    if (skill.id === skillId) {
+                        const newLevel = Math.max(0, Math.min(10, skill.level + change));
+                        if (newLevel !== skill.level) {
+                            updated = true;
+                            return { ...skill, level: newLevel };
+                        }
+                    }
+                    return skill;
+                })
+            };
+        }
+        return category; // Devolver categoría sin cambios si es glosario
+    });
     if (updated) {
-        saveStack(currentStack); // Guarda el estado actualizado
-        renderStackContent(); // Vuelve a renderizar solo la pestaña activa
+        saveStack(currentStack);
+        renderStackContent();
     }
 }
 // Inicia la renderización de botones y contenido cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
+    // Asegurar que si es la primera vez, el glosario sea la pestaña activa
+    // o si el primer elemento inicial es el glosario
+    if (currentStack.length > 0 && currentStack[0].isGlossary) {
+        activeTabId = currentStack[0].id;
+    }
+    else if (currentStack.length > 0 && !currentStack.some(cat => cat.id === activeTabId)) {
+        // Si la pestaña activa guardada no existe (ej. se borró), ir a la primera
+        activeTabId = currentStack[0].id;
+    }
     renderTabButtons();
     renderStackContent();
 });
