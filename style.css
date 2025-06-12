@@ -1,0 +1,374 @@
+/* Variables CSS - Colores más suaves y semitransparentes */
+:root {
+    --primary-color: #6c469f; /* Púrpura más oscuro para acentos */
+    --secondary-color: #927ac4; /* Púrpura medio para fondos */
+    --accent-color: #4b2c70; /* Púrpura muy oscuro para texto principal/botones */
+    --text-color: #2c2c2c; /* Gris oscuro para texto */
+    --light-text-color: #f8f8f8; /* Casi blanco para texto sobre fondos oscuros */
+    --bg-gradient-start: #e0f2f7; /* Azul claro muy suave */
+    --bg-gradient-end: #fcf4f7; /* Rosa claro muy suave */
+    --glass-bg: rgba(255, 255, 255, 0.15); /* Fondo semitransparente para el vidrio */
+    --glass-border: rgba(255, 255, 255, 0.3); /* Borde semitransparente */
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    --button-bg: var(--accent-color); /* Color oscuro para botones */
+    --button-hover-bg: #825ad1; /* Púrpura brillante al hover */
+    --button-text: #fff; /* Texto blanco para botones */
+    --skill-item-border: rgba(0, 0, 0, 0.08); /* Borde de habilidad más sutil */
+    --primary-color-transparency: #6d469fa9;
+}
+
+/* Base y Fondo */
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Incluir padding y border en el ancho/alto */
+    /* NO overflow-y: scroll; aquí. El body maneja el scroll principal si es necesario. */
+}
+
+/* Header */
+header {
+    background: var(--primary-color-transparency);
+    color: var(--light-text-color);
+    padding: 0.4rem; /* Más compacto */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+header h1 {
+    margin: 0.1rem;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    font-weight: 400;
+}
+
+header p {
+    font-size: 0.85rem; /* Ajustado ligeramente para un header más compacto */
+    opacity: 0.9;
+    margin-top: 0;
+}
+
+/* Contenedor Principal (Glassmorphism) - Ahora con layout de fila en desktop */
+.tab-container {
+    flex-grow: 1; /* Ocupa el espacio restante en el body */
+    display: flex;
+    flex-direction: column; /* Por defecto en móvil, se cambiará a row en desktop */
+    max-width: 1400px;
+    width: 90%;
+    margin: 1rem auto;
+    border-radius: 20px;
+    overflow: hidden; /* Asegura que el contenido con blur no se salga */
+    backdrop-filter: blur(12px);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 40px var(--glass-shadow);
+    min-height: 60vh; /* Un mínimo para que el efecto glassmorphism se vea bien */
+}
+
+/* Botones de Pestañas - Ahora vertical a la izquierda en desktop */
+.tab-buttons {
+    display: flex;
+    flex-direction: column; /* Vertical por defecto */
+    flex-wrap: nowrap; /* Evita que los botones se envuelvan */
+    justify-content: flex-start; /* Alinear arriba */
+    padding: 1.5rem 1rem; /* Padding para el menú vertical */
+    border-bottom: none; /* Eliminar borde inferior */
+    border-right: 1px solid var(--glass-border); /* Nuevo borde derecho */
+    gap: 0.7rem;
+    background: rgba(255, 255, 255, 0.08); /* Fondo ligeramente diferente para el menú */
+    min-width: 160px; /* Ancho mínimo para el menú lateral */
+    max-width: 200px; /* Ancho máximo para el menú lateral */
+    box-sizing: border-box; /* Incluir padding en el ancho */
+}
+
+.tab-button {
+    background-color: var(--tab-inactive-bg);
+    border: 1px solid var(--tab-border);
+    border-radius: 10px;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.1s ease, color 0.3s ease;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    text-align: left; /* Alinear texto a la izquierda en los botones */
+    width: 100%; /* Ocupa el ancho completo del menú */
+}
+
+.tab-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(3px); /* Efecto al pasar el ratón hacia la derecha */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tab-button.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(2px); /* Efecto de "empuje" para la pestaña activa */
+    position: relative;
+    border-left: 5px solid var(--accent-color); /* Borde lateral como indicador */
+    border-right: none; /* Eliminar el borde derecho para el indicador */
+    padding-left: calc(1.4rem - 5px); /* Ajustar padding para compensar el borde izquierdo */
+}
+/* Eliminar el indicador inferior del active::after para el menú vertical */
+.tab-button.active::after {
+    display: none;
+}
+@keyframes fadeInBorder { /* Se mantiene pero no se usará en este layout */
+    from { width: 0%; opacity: 0; }
+    to { width: 70%; opacity: 1; }
+}
+
+
+/* Contenedor del contenido de las pestañas - Ocupa el resto del espacio horizontal */
+.tab-content {
+    padding: 2rem;
+    display: block;
+    flex-grow: 1; /* Ocupa todo el espacio horizontal restante */
+    /* REMOVIDO: overflow-y: auto y max-height aquí para evitar doble scroll */
+    /* El scroll lo manejará el body si el contenido completo lo requiere */
+    min-height: 400px; /* Mantener un mínimo para ver el glassmorphism */
+}
+
+
+/* Secciones de Categoría (Grid Interna) - Sin cambios, ya era buena */
+.category-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+.category-section:hover {
+    transform: translateY(-7px) scale(1.005);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.category-section h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.9rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.8rem;
+    text-align: center;
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de Habilidades dentro de cada categoría (Grid) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto en móvil */
+    gap: 1rem 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px dashed var(--skill-item-border);
+    transition: background-color 0.2s ease;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--text-color);
+    flex-grow: 1;
+    margin-right: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.skill-level-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Botones de Nivel (Modernizados) */
+.level-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+.level-button i {
+    color: var(--button-text);
+    font-size: 1rem;
+}
+
+.level-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+.level-button:active {
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.level-display {
+    font-weight: bold;
+    font-size: 1.25rem;
+    min-width: 50px;
+    text-align: center;
+    color: var(--primary-color);
+    text-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.2rem 1rem;
+    margin-top: auto;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVIDAD AVANZADA */
+
+/* Móvil - Stack vertical como antes, para ahorrar espacio horizontal */
+@media (max-width: 767px) {
+    .tab-container {
+        flex-direction: column; /* Contenedor en columna */
+        width: 95%;
+        margin: 1rem auto;
+    }
+    .tab-buttons {
+        flex-direction: row; /* Botones de pestaña vuelven a ser horizontales */
+        flex-wrap: wrap;
+        justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border); /* Vuelve el borde inferior */
+        min-width: unset;
+        max-width: unset;
+        padding: 1rem;
+    }
+    .tab-button {
+        width: auto; /* Ancho automático para que se ajusten al contenido */
+        flex-grow: 1; /* Permite que crezcan y ocupen el espacio disponible */
+        text-align: center;
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .tab-button:last-child {
+        margin-bottom: 0;
+    }
+    .tab-button.active {
+        border-left: none; /* Eliminar borde lateral para el móvil */
+        border-bottom: 3px solid var(--accent-color); /* Vuelve el indicador inferior */
+        padding-left: 0.8rem; /* Restaurar padding normal */
+        transform: translateY(-1px); /* Efecto sutil */
+    }
+    .tab-button.active::after { /* Mostrar de nuevo el indicador inferior */
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 15%;
+        width: 70%;
+        height: 3px;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+        animation: fadeInBorder 0.3s ease-out;
+    }
+    .category-section {
+        padding: 1rem;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr; /* Una columna para las habilidades */
+    }
+}
+
+/* Tablet / Pequeñas Laptops - Transición al layout vertical */
+@media (min-width: 768px) {
+    .tab-container {
+        flex-direction: row; /* Menú lateral a la izquierda */
+        min-height: calc(100vh - 150px); /* Ajustar la altura mínima del contenedor para ocupar la pantalla */
+        /* Header + Footer + Margen superior/inferior del tab-container */
+        /* Estimado: 80px (header) + 70px (footer) + 2rem*2 (margen) = 80 + 70 + 64 = ~214px. Menos para que quede margen visual. */
+    }
+    .tab-buttons {
+        flex-direction: column; /* Vertical */
+        justify-content: flex-start;
+        border-right: 1px solid var(--glass-border);
+        border-bottom: none; /* Eliminar el borde inferior que pudo venir de móvil */
+        min-width: 180px; /* Ancho fijo para el menú */
+        max-width: 200px;
+        padding: 1.5rem 1rem;
+        flex-shrink: 0; /* No permitir que se encoja */
+    }
+    .tab-button {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0.5rem; /* Espacio entre botones verticales */
+        padding: 0.8rem 1.4rem;
+    }
+    .tab-button.active {
+        border-left: 5px solid var(--accent-color); /* Borde lateral indicador */
+        border-bottom: none; /* Asegurar que no hay borde inferior */
+        padding-left: calc(1.4rem - 5px);
+        transform: translateX(2px);
+    }
+    .tab-button.active::after {
+        display: none; /* Ocultar el indicador inferior en vista de menú lateral */
+    }
+    .skills-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas para las habilidades */
+    }
+    .category-section {
+        max-width: none;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}

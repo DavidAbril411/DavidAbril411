@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES2018", // Compila a una versión de JS compatible con la mayoría de navegadores
+        "module": "CommonJS", // Tipo de módulo (para navegadores, "UMD" o "ESNext" podrían ser mejores, pero CommonJS es simple)
+        "outDir": "./", // Dónde se generará el archivo JS (en la misma carpeta)
+        "strict": true, // Habilita todas las opciones de verificación de tipos estrictas
+        "esModuleInterop": true, // Permite importaciones y exportaciones comunes
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true
+    },
+    "include": [
+        "script.ts" // Archivos que TypeScript debe compilar
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
