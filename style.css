@@ -47,9 +47,9 @@ header {
 
 header h1 {
     margin: 0.1rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 header p {
@@ -68,10 +68,10 @@ header p {
     margin: 1rem auto;
     border-radius: 20px;
     overflow: hidden; /* Asegura que el contenido con blur no se salga */
-    backdrop-filter: blur(12px);
-    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.2);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 10px 40px var(--glass-shadow);
+    box-shadow: 0 8px 32px var(--glass-shadow);
     min-height: 60vh; /* Un mínimo para que el efecto glassmorphism se vea bien */
 }
 
@@ -95,8 +95,8 @@ header p {
     background-color: var(--tab-inactive-bg);
     border: 1px solid var(--tab-border);
     border-radius: 10px;
-    padding: 0.8rem 1.4rem;
-    font-size: 0.95rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-color);
     cursor: pointer;
@@ -109,7 +109,7 @@ header p {
 }
 
 .tab-button:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
     transform: translateX(3px); /* Efecto al pasar el ratón hacia la derecha */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
@@ -148,13 +148,13 @@ header p {
 
 /* Secciones de Categoría (Grid Interna) - Sin cambios, ya era buena */
 .category-section {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
 }
 
@@ -167,11 +167,12 @@ header p {
     color: var(--primary-color);
     margin-top: 0;
     margin-bottom: 1.5rem;
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 0.8rem;
     text-align: center;
-    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    font-weight: 600;
 }
 
 /* Contenedor de Habilidades dentro de cada categoría (Grid) */
@@ -185,9 +186,10 @@ header p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 0.5rem;
+    padding: 1rem 0.5rem;
     border-bottom: 1px dashed var(--skill-item-border);
-    transition: background-color 0.2s ease;
+    transform: translateY(0);
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .skill-item:last-child {
@@ -197,6 +199,7 @@ header p {
 .skill-item:hover {
     background-color: rgba(0, 0, 0, 0.03);
     border-radius: 5px;
+    transform: translateY(-2px);
 }
 
 .skill-name {
@@ -227,17 +230,17 @@ header p {
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 .level-button i {
     color: var(--button-text);
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .level-button:hover {
     background-color: var(--button-hover-bg);
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .level-button:active {
@@ -287,7 +290,7 @@ footer {
         width: auto; /* Ancho automático para que se ajusten al contenido */
         flex-grow: 1; /* Permite que crezcan y ocupen el espacio disponible */
         text-align: center;
-        padding: 0.8rem 1rem;
+        padding: 0.85rem 1.1rem;
         margin-bottom: 0.5rem;
     }
     .tab-button:last-child {
