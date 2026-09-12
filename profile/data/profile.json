@@ -1,0 +1,37 @@
+{
+  "name": "David Abril Perrig",
+  "handle": "DavidAbril411",
+  "role": "Full-Stack Developer",
+  "location": "Córdoba, Argentina",
+  "passport": "EU citizen — Italian passport",
+  "tagline": "I ship products end-to-end — from PostGIS queries to the App Store listing.",
+  "typing": [
+    "Full-Stack Developer",
+    "React Native · NestJS · PostgreSQL",
+    "AI engineering with evals, not vibes",
+    "Founder @ Cappy · Calei · Abril Codes",
+    "Open to remote roles across the EU"
+  ],
+  "now": [
+    "Finishing **B.S. Computer Engineering** at UBP — graduating **Dec 2026**, GPA 8.75/10",
+    "Building **Cappy** solo and taking it to the App Store & Google Play",
+    "Scaling **Calei** into a multi-tenant SaaS, already in production with a paying client",
+    "Open to **remote roles across the EU** — relocating to Spain in **July 2027**"
+  ],
+  "links": {
+    "website": "https://abrilcodes.com",
+    "github": "https://github.com/DavidAbril411",
+    "linkedin": "https://linkedin.com/in/david-abril-perrig",
+    "email": "davidabril411@gmail.com"
+  },
+  "education": {
+    "degree": "B.S. Computer Engineering",
+    "school": "Universidad Blas Pascal (UBP)",
+    "period": "Mar 2022 – Dec 2026",
+    "gpa": "8.75 / 10"
+  },
+  "languages": [
+    { "name": "Spanish", "level": "Native" },
+    { "name": "English", "level": "B2 — professional working" }
+  ]
+}

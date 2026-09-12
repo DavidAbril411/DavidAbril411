@@ -1,0 +1,43 @@
+name: Contribution snake
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/snake.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snake
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Render the snake in the profile palette
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          # %23 is '#'. Dots go from the empty-day colour to the busiest day.
+          outputs: |
+            assets/snake.svg?color_snake=%23a78bfa&color_dots=%23140d28,%234c1d95,%236c469f,%23927ac4,%23c4b5fd
+
+      - name: Commit if the snake changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/snake.svg
+          if git diff --staged --quiet; then
+            echo "nothing changed — no commit"
+          else
+            git commit -m "chore(profile): refresh contribution snake"
+            git push
+          fi
