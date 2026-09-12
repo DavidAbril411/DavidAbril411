@@ -2,7 +2,6 @@
   "services": [
     {
       "title": "Web & SaaS products",
-      "glyph": "◧",
       "summary": "I build the whole product: database, API, admin panel and frontend. The architecture is defined before the first line of code, typing is strict end to end, and deployment runs on your own infrastructure — no platform lock-in.",
       "points": [
         "**Architecture first** — data flow and scalability designed before any code",
@@ -13,7 +12,6 @@
     },
     {
       "title": "Offline-first mobile apps",
-      "glyph": "◫",
       "summary": "Offline-first synchronization is my specialty. Field apps — logistics, technicians, events, mountain trails — lose signal constantly. Mine store every operation locally, queue it, and sync it in chronological order the moment connectivity returns. The user never sees a network error.",
       "points": [
         "**Zero data loss** — local persistence with Room or SQLite and reactive sync queues",
@@ -24,7 +22,6 @@
     },
     {
       "title": "Applied AI & algorithms",
-      "glyph": "◨",
       "summary": "I bring AI in where it moves the number, not where it looks good: agents with strict output validation, models running inside the user's browser at zero API cost, and mathematical engines in C++ for fleet routing and optimization.",
       "points": [
         "**AI without hallucinations** — every claim mechanically validated against the source",
@@ -45,8 +42,20 @@
         "Real-time proximity matching with PostgreSQL + PostGIS",
         "Launching on the App Store and Google Play"
       ],
-      "stack": ["React Native (Expo)", "Node.js", "Express", "Drizzle", "PostgreSQL", "PostGIS", "Clerk", "MercadoPago", "Mapbox", "Cloudinary"],
-      "url": "https://github.com/DavidAbril411/Capi"
+      "stack": [
+        "React Native (Expo)",
+        "Node.js",
+        "Express",
+        "Drizzle",
+        "PostgreSQL",
+        "PostGIS",
+        "Clerk",
+        "MercadoPago",
+        "Mapbox",
+        "Cloudinary"
+      ],
+      "url": "https://www.cappy.com.ar",
+      "repo": "https://github.com/DavidAbril411/Capi"
     },
     {
       "name": "Calei — OrionLogistics",
@@ -58,7 +67,16 @@
         "Offline-first Android app: every operation queued locally and synced in order",
         "Multi-tenant: JWT tenant id, Postgres Row-Level Security, seeded roles, 50+ features"
       ],
-      "stack": ["Kotlin", "NestJS", "MySQL", "TypeORM", "Next.js", "C++20", "Docker", "nginx"],
+      "stack": [
+        "Kotlin",
+        "NestJS",
+        "MySQL",
+        "TypeORM",
+        "Next.js",
+        "C++20",
+        "Docker",
+        "nginx"
+      ],
       "url": "https://calei.com.ar"
     },
     {
@@ -71,7 +89,11 @@
         "Full privacy by construction rather than by policy",
         "The most openly readable thing I have built: the source is public"
       ],
-      "stack": ["JavaScript", "Transformers.js", "Node.js"],
+      "stack": [
+        "JavaScript",
+        "Transformers.js",
+        "Node.js"
+      ],
       "url": "https://github.com/DavidAbril411/ChatEducativoHipolito"
     },
     {
@@ -84,7 +106,14 @@
         "TensorFlow Lite on device, so the shop floor keeps working without connectivity",
         "Java 21 + Spring Boot behind a Next.js front end"
       ],
-      "stack": ["Java 21", "Spring Boot", "Next.js", "GCP", "Azure", "TensorFlow Lite"],
+      "stack": [
+        "Java 21",
+        "Spring Boot",
+        "Next.js",
+        "GCP",
+        "Azure",
+        "TensorFlow Lite"
+      ],
       "url": "https://abrilcodes.com"
     }
   ],
@@ -112,11 +141,35 @@
     }
   ],
   "impact": [
-    { "value": "95%", "label": "faster route calculation", "detail": "C++20 · Vroom + OSRM" },
-    { "value": "40%", "label": "less time on the road", "detail": "OrionLogistics fleet" },
-    { "value": "25%", "label": "fewer operational errors", "detail": "offline-first field app" },
-    { "value": "20%", "label": "fewer inventory gaps", "detail": "B2B POS · Java 21" },
-    { "value": "8+", "label": "clients delivered", "detail": "freelance since Nov 2021" },
-    { "value": "0", "label": "security incidents", "detail": "hardened Linux VPS fleet" }
+    {
+      "value": "95%",
+      "label": "faster route calculation",
+      "detail": "C++20 · Vroom + OSRM"
+    },
+    {
+      "value": "40%",
+      "label": "less time on the road",
+      "detail": "OrionLogistics fleet"
+    },
+    {
+      "value": "25%",
+      "label": "fewer operational errors",
+      "detail": "offline-first field app"
+    },
+    {
+      "value": "20%",
+      "label": "fewer inventory gaps",
+      "detail": "B2B POS · Java 21"
+    },
+    {
+      "value": "8+",
+      "label": "clients delivered",
+      "detail": "freelance since Nov 2021"
+    },
+    {
+      "value": "0",
+      "label": "security incidents",
+      "detail": "hardened Linux VPS fleet"
+    }
   ]
 }

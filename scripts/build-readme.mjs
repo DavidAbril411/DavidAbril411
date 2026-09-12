@@ -19,54 +19,38 @@ const stats = read('stats.json');
 const chip = (s) => '`' + s + '`';
 const num = (n) => (n === null || n === undefined ? '—' : n.toLocaleString('en-US'));
 
-/* Featured work as a two-column table — the closest Markdown gets to a bento
- * grid, and unlike an SVG every project title stays a real, clickable link. */
-function projectCards() {
-  const cell = (p) =>
-    [
-      `### [${p.name}](${p.url})`,
-      `**${p.role}** · ${p.period}`,
-      '',
-      p.summary,
-      '',
-      ...p.highlights.map((h) => `- ${h}`),
-      '',
-      p.stack.map(chip).join(' '),
-    ].join('\n');
-
-  const rows = [];
-  for (let i = 0; i < projects.featured.length; i += 2) {
-    const pair = projects.featured.slice(i, i + 2);
-    const cells = pair
-      .map((p) => `<td width="50%" valign="top">\n\n${cell(p)}\n\n</td>`)
-      .join('\n');
-    const filler = pair.length === 1 ? '\n<td width="50%"></td>' : '';
-    rows.push(`<tr>\n${cells}${filler}\n</tr>`);
-  }
-  return `<table>\n${rows.join('\n')}\n</table>`;
+/* Featured work, one section per project.
+ *
+ * This used to be a two-column HTML table, and on a phone GitHub gave each
+ * column half of a narrow screen: the prose shredded into one word per line
+ * and the right column fell off the edge. Markdown that simply stacks reads
+ * correctly at every width. */
+function projectSections() {
+  return projects.featured
+    .map((p) => {
+      const source = p.repo ? ` · [source](${p.repo})` : '';
+      return [
+        `### [${p.name}](${p.url})${source}`,
+        `<sub>**${p.role}** · ${p.period}</sub>`,
+        '',
+        p.summary,
+        '',
+        ...p.highlights.map((h) => `- ${h}`),
+        '',
+        p.stack.map(chip).join(' '),
+      ].join('\n');
+    })
+    .join('\n\n');
 }
 
-function impactRow() {
-  const cell = (i) =>
-    `<td align="center" width="33%">\n\n### ${i.value}\n\n**${i.label}**<br/><sub>${i.detail}</sub>\n\n</td>`;
-  const rows = [];
-  for (let i = 0; i < projects.impact.length; i += 3) {
-    rows.push(`<tr>\n${projects.impact.slice(i, i + 3).map(cell).join('\n')}\n</tr>`);
-  }
-  return `<table>\n${rows.join('\n')}\n</table>`;
-}
-
-/* The three things I am actually hired for, straight from abrilcodes.com. */
-function serviceRow() {
-  const cells = projects.services
-    .map(
-      (svc) =>
-        `<td width="33%" valign="top">\n\n#### ${svc.glyph} ${svc.title}\n\n${svc.summary}\n\n` +
-        svc.points.map((pt) => `- ${pt}`).join('\n') +
-        `\n\n</td>`
+/* The three things I am actually hired for, straight from abrilcodes.com.
+ * Stacked for the same reason as the project cards. */
+function serviceSections() {
+  return projects.services
+    .map((svc) =>
+      [`### ${svc.title}`, '', svc.summary, '', ...svc.points.map((pt) => `- ${pt}`)].join('\n')
     )
-    .join('\n');
-  return `<table>\n<tr>\n${cells}\n</tr>\n</table>`;
+    .join('\n\n');
 }
 
 function experienceList() {
@@ -91,7 +75,7 @@ const contact = [
 // Cache-bust on *content*, not on wall-clock time: a scheduled build that
 // finds nothing new must leave README.md byte-identical so it never commits.
 const fingerprint = createHash('sha256');
-for (const f of ['../assets/hero.svg', '../assets/skills.svg', '../assets/terminal.svg']) {
+for (const f of ['../assets/hero.svg', '../assets/skills.svg', '../assets/terminal.svg', '../assets/impact.svg']) {
   try {
     fingerprint.update(readFileSync(new URL(f, import.meta.url)));
   } catch {
@@ -108,9 +92,8 @@ const tokens = {
   role: profile.role,
   tagline: profile.tagline,
   now: profile.now.map((n) => `- ${n}`).join('\n'),
-  projects: projectCards(),
-  impact: impactRow(),
-  services: serviceRow(),
+  projects: projectSections(),
+  services: serviceSections(),
   experience: experienceList(),
   intro: profile.intro,
   contact,

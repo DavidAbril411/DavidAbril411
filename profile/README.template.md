@@ -30,7 +30,7 @@
 
 ## Impact, in numbers
 
-{{ impact }}
+<img src="assets/impact.svg?v={{ v }}" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
 
 ## `gitfetch --profile`
 
