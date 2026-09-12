@@ -1,25 +1,26 @@
-// Palette derived from David's own stack app (style.css) and adapted so the
-// cards stay legible on GitHub's light *and* dark backgrounds. The cards paint
-// their own opaque ground, which is the only approach that also survives the
-// GitHub mobile app (where `prefers-color-scheme` inside an SVG is ignored).
+import { readFileSync } from 'node:fs';
+
+// The palette lives in data, not in code: PROFILE_PALETTE (or theme.json's
+// "active") swaps the whole profile's colour identity in one move.
+const themeFile = JSON.parse(readFileSync(new URL('../../profile/data/theme.json', import.meta.url), 'utf8'));
+const paletteName = process.env.PROFILE_PALETTE || themeFile.active;
+const palette = themeFile.palettes[paletteName];
+if (!palette) {
+  throw new Error(`unknown palette "${paletteName}" — have: ${Object.keys(themeFile.palettes).join(', ')}`);
+}
+
+export const paletteId = paletteName;
+export const snakeColors = palette.snake;
+
 export const theme = {
-  bg0: '#0d0817',
-  bg1: '#191033',
-  bg2: '#241546',
+  ...palette,
+  // Neutrals and surfaces are shared by every palette: the cards paint their
+  // own opaque ground, which is the only thing that also works in the GitHub
+  // mobile app, where `prefers-color-scheme` inside an SVG is ignored.
   panel: 'rgba(255,255,255,0.045)',
   panelStrong: 'rgba(255,255,255,0.075)',
-  stroke: 'rgba(167,139,250,0.22)',
+  stroke: 'rgba(255,255,255,0.18)',
   strokeSoft: 'rgba(255,255,255,0.09)',
-
-  primary: '#6c469f',
-  secondary: '#927ac4',
-  bright: '#a78bfa',
-  hover: '#825ad1',
-
-  cyan: '#7dd3fc',
-  pink: '#f0abfc',
-  teal: '#5eead4',
-  amber: '#fbbf24',
 
   text: '#f2eeff',
   textSoft: '#cfc6e8',

@@ -4,11 +4,13 @@
   "role": "Full-Stack Developer",
   "location": "Córdoba, Argentina",
   "passport": "EU citizen — Italian passport",
-  "tagline": "I ship products end-to-end — from PostGIS queries to the App Store listing.",
+  "tagline": "You don't talk to a salesperson — you talk to the engineer building the system.",
+  "intro": "I design the architecture and write the core of every project I take on: a geolocated marketplace, a logistics CRM with a C++20 routing engine, point-of-sale systems and autonomous AI agents. Backends, native mobile apps and self-managed infrastructure for startups and clients across the US and Europe — and a certified electronics technician, so I understand the software and the hardware it runs on.",
   "typing": [
     "Full-Stack Developer",
     "React Native · NestJS · PostgreSQL",
-    "AI engineering with evals, not vibes",
+    "Offline-first sync is my specialty",
+    "AI with guardrails, not vibes",
     "Founder @ Cappy · Calei · Abril Codes",
     "Open to remote roles across the EU"
   ],
@@ -22,7 +24,8 @@
     "website": "https://abrilcodes.com",
     "github": "https://github.com/DavidAbril411",
     "linkedin": "https://linkedin.com/in/david-abril-perrig",
-    "email": "davidabril411@gmail.com"
+    "email": "davidabril411@gmail.com",
+    "pages": "https://davidabril411.github.io/DavidAbril411/"
   },
   "education": {
     "degree": "B.S. Computer Engineering",

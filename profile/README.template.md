@@ -8,15 +8,25 @@
 
 </div>
 
+{{ intro }}
+
 ## Now
 
 {{ now }}
 
 <sub>{{ education }} · {{ spokenLanguages }}</sub>
 
+## What I get hired for
+
+{{ services }}
+
 ## Selected work
 
 {{ projects }}
+
+### Where I have done it
+
+{{ experience }}
 
 ## Impact, in numbers
 
@@ -25,6 +35,8 @@
 ## `gitfetch --profile`
 
 <img src="assets/terminal.svg?v={{ v }}" alt="Terminal-style summary of {{ name }}'s GitHub profile" width="100%">
+
+<sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
