@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs';
 
-// The palette lives in data, not in code: PROFILE_PALETTE (or theme.json's
-// "active") swaps the whole profile's colour identity in one move.
+// The palette lives in data, not in code. theme.json's "active" is the
+// persisted choice and the only one CI honours: these generators and the
+// snake workflow both read it, so changing it repaints the whole profile.
+// PROFILE_PALETTE is a local preview override for these generators alone —
+// it never reaches the snake, which is always rendered from "active".
 const themeFile = JSON.parse(readFileSync(new URL('../../profile/data/theme.json', import.meta.url), 'utf8'));
 const paletteName = process.env.PROFILE_PALETTE || themeFile.active;
 const palette = themeFile.palettes[paletteName];
