@@ -22,13 +22,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Read the active palette
+        id: palette
+        run: |
+          node -e "
+            const t = require('./profile/data/theme.json');
+            const p = t.palettes[t.active].snake;
+            const dots = p.dots.map(d => '%23' + d).join(',');
+            console.log('query=color_snake=%23' + p.snake + '&color_dots=' + dots);
+          " >> "$GITHUB_OUTPUT"
+
       - name: Render the snake in the profile palette
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          # %23 is '#'. Dots go from the empty-day colour to the busiest day.
           outputs: |
-            assets/snake.svg?color_snake=%23a78bfa&color_dots=%23140d28,%234c1d95,%236c469f,%23927ac4,%23c4b5fd
+            assets/snake.svg?${{ steps.palette.outputs.query }}
 
       - name: Commit if the snake changed
         run: |
@@ -37,7 +46,18 @@ jobs:
           git add assets/snake.svg
           if git diff --staged --quiet; then
             echo "nothing changed — no commit"
-          else
-            git commit -m "chore(profile): refresh contribution snake"
-            git push
+            exit 0
           fi
+          git commit -m "chore(profile): refresh contribution snake"
+          # The snake and the README build can finish seconds apart, so a push
+          # can lose the race. Rebase onto whatever landed first and retry.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected (attempt $attempt/5) — rebasing onto origin/main"
+            git pull --rebase origin main || exit 1
+            sleep $((attempt * 3))
+          done
+          echo "could not push after 5 attempts"
+          exit 1

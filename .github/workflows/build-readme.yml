@@ -51,7 +51,18 @@ jobs:
           git add README.md assets profile/data/stats.json
           if git diff --staged --quiet; then
             echo "nothing changed — no commit"
-          else
-            git commit -m "chore(profile): refresh generated README and cards"
-            git push
+            exit 0
           fi
+          git commit -m "chore(profile): refresh generated README and cards"
+          # The snake and the README build can finish seconds apart, so a push
+          # can lose the race. Rebase onto whatever landed first and retry.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected (attempt $attempt/5) — rebasing onto origin/main"
+            git pull --rebase origin main || exit 1
+            sleep $((attempt * 3))
+          done
+          echo "could not push after 5 attempts"
+          exit 1

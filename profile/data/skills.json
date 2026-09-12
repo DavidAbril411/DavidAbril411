@@ -1,8 +1,17 @@
 {
   "tiers": {
-    "core": { "label": "Daily / production", "weight": 1 },
-    "strong": { "label": "Shipped with", "weight": 0.72 },
-    "working": { "label": "Working knowledge", "weight": 0.45 }
+    "core": {
+      "label": "Daily / production",
+      "weight": 1
+    },
+    "strong": {
+      "label": "Shipped with",
+      "weight": 0.72
+    },
+    "working": {
+      "label": "Working knowledge",
+      "weight": 0.45
+    }
   },
   "groups": [
     {
@@ -10,12 +19,34 @@
       "label": "Frontend & Mobile",
       "glyph": "layers",
       "items": [
-        { "name": "TypeScript", "tier": "core" },
-        { "name": "React", "tier": "core" },
-        { "name": "Next.js", "tier": "core" },
-        { "name": "React Native (Expo)", "tier": "strong" },
-        { "name": "Kotlin (MVVM · Hilt)", "tier": "strong" },
-        { "name": "JavaScript", "tier": "core" }
+        {
+          "name": "TypeScript",
+          "tier": "core"
+        },
+        {
+          "name": "React",
+          "tier": "core"
+        },
+        {
+          "name": "Next.js",
+          "tier": "core"
+        },
+        {
+          "name": "React Native (Expo)",
+          "tier": "strong"
+        },
+        {
+          "name": "Kotlin (MVVM · Hilt)",
+          "tier": "strong"
+        },
+        {
+          "name": "JavaScript",
+          "tier": "core"
+        },
+        {
+          "name": "Swift",
+          "tier": "working"
+        }
       ]
     },
     {
@@ -23,12 +54,30 @@
       "label": "Backend & APIs",
       "glyph": "server",
       "items": [
-        { "name": "NestJS", "tier": "core" },
-        { "name": "Node.js", "tier": "core" },
-        { "name": "Express", "tier": "strong" },
-        { "name": "Java · Spring Boot", "tier": "strong" },
-        { "name": "C++20", "tier": "strong" },
-        { "name": "Python", "tier": "working" }
+        {
+          "name": "NestJS",
+          "tier": "core"
+        },
+        {
+          "name": "Node.js",
+          "tier": "core"
+        },
+        {
+          "name": "Express",
+          "tier": "strong"
+        },
+        {
+          "name": "Java 21 · Spring Boot",
+          "tier": "strong"
+        },
+        {
+          "name": "C++20",
+          "tier": "strong"
+        },
+        {
+          "name": "Python",
+          "tier": "working"
+        }
       ]
     },
     {
@@ -36,12 +85,38 @@
       "label": "Data & Infra",
       "glyph": "database",
       "items": [
-        { "name": "PostgreSQL", "tier": "core" },
-        { "name": "PostGIS", "tier": "strong" },
-        { "name": "Row-Level Security", "tier": "strong" },
-        { "name": "MySQL · TypeORM · Drizzle", "tier": "strong" },
-        { "name": "Docker · nginx · Linux VPS", "tier": "core" },
-        { "name": "AWS (S3 · IAM) · GCP · Azure", "tier": "working" }
+        {
+          "name": "PostgreSQL",
+          "tier": "core"
+        },
+        {
+          "name": "PostGIS",
+          "tier": "strong"
+        },
+        {
+          "name": "Row-Level Security",
+          "tier": "strong"
+        },
+        {
+          "name": "MySQL · TypeORM · Drizzle",
+          "tier": "strong"
+        },
+        {
+          "name": "Room · SQLite · sync queues",
+          "tier": "strong"
+        },
+        {
+          "name": "Docker · nginx · Linux VPS",
+          "tier": "core"
+        },
+        {
+          "name": "AWS (S3 · IAM) · GCP · Azure",
+          "tier": "working"
+        },
+        {
+          "name": "Mapbox · geofencing",
+          "tier": "strong"
+        }
       ]
     },
     {
@@ -49,12 +124,30 @@
       "label": "AI Engineering",
       "glyph": "spark",
       "items": [
-        { "name": "LLM API integration", "tier": "core" },
-        { "name": "Prompt design", "tier": "core" },
-        { "name": "Evaluation sets", "tier": "strong" },
-        { "name": "Transformers.js (in-browser)", "tier": "strong" },
-        { "name": "TensorFlow Lite (Android)", "tier": "working" },
-        { "name": "Claude Code · multi-agent", "tier": "core" }
+        {
+          "name": "LLM API integration",
+          "tier": "core"
+        },
+        {
+          "name": "Prompt design",
+          "tier": "core"
+        },
+        {
+          "name": "Evaluation sets",
+          "tier": "strong"
+        },
+        {
+          "name": "Transformers.js (in-browser)",
+          "tier": "strong"
+        },
+        {
+          "name": "TensorFlow Lite (Android)",
+          "tier": "working"
+        },
+        {
+          "name": "Claude Code · multi-agent",
+          "tier": "core"
+        }
       ]
     }
   ]

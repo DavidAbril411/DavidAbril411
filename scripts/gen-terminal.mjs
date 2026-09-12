@@ -113,8 +113,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${roun
   <title>gitfetch --profile</title>
   <defs>
     <linearGradient id="termBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b0714"/>
-      <stop offset="1" stop-color="#150d2b"/>
+      <stop offset="0" stop-color="${t.termBg0}"/>
+      <stop offset="1" stop-color="${t.termBg1}"/>
     </linearGradient>
     <linearGradient id="promptGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="${t.bright}"/>

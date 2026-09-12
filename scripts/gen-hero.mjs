@@ -180,9 +180,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
   <g clip-path="url(#card)">
     <rect width="${W}" height="${H}" fill="url(#bg)"/>
-    ${blob(190, 90, 130, t.primary, 22, 120, 60)}
-    ${blob(760, 220, 150, '#3b2a6b', 26, -140, -70, 3)}
-    ${blob(520, 40, 110, '#4c1d95', 30, 90, 120, 6)}
+    ${blob(190, 90, 130, t.blobA, 22, 120, 60)}
+    ${blob(760, 220, 150, t.blobB, 26, -140, -70, 3)}
+    ${blob(520, 40, 110, t.blobC, 30, 90, 120, 6)}
     ${grid()}
 
     <!-- light sweeping across the card -->

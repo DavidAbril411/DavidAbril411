@@ -7,6 +7,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { theme, paletteId } from './lib/theme.mjs';
 
 const base = new URL('../profile/data/', import.meta.url);
 const read = (f) => JSON.parse(readFileSync(new URL(f, base), 'utf8'));
@@ -46,20 +47,42 @@ function projectCards() {
 }
 
 function impactRow() {
-  const cells = projects.impact
+  const cell = (i) =>
+    `<td align="center" width="33%">\n\n### ${i.value}\n\n**${i.label}**<br/><sub>${i.detail}</sub>\n\n</td>`;
+  const rows = [];
+  for (let i = 0; i < projects.impact.length; i += 3) {
+    rows.push(`<tr>\n${projects.impact.slice(i, i + 3).map(cell).join('\n')}\n</tr>`);
+  }
+  return `<table>\n${rows.join('\n')}\n</table>`;
+}
+
+/* The three things I am actually hired for, straight from abrilcodes.com. */
+function serviceRow() {
+  const cells = projects.services
     .map(
-      (i) =>
-        `<td align="center" width="25%">\n\n### ${i.value}\n\n**${i.label}**<br/><sub>${i.detail}</sub>\n\n</td>`
+      (svc) =>
+        `<td width="33%" valign="top">\n\n#### ${svc.glyph} ${svc.title}\n\n${svc.summary}\n\n` +
+        svc.points.map((pt) => `- ${pt}`).join('\n') +
+        `\n\n</td>`
     )
     .join('\n');
   return `<table>\n<tr>\n${cells}\n</tr>\n</table>`;
+}
+
+function experienceList() {
+  return projects.experience
+    .map((e) => {
+      const org = e.url ? `[${e.org}](${e.url})` : e.org;
+      return `- **${org}** — ${e.role} · <sub>${e.period}</sub><br/>${e.note}`;
+    })
+    .join('\n');
 }
 
 const badge = (label, color, logo, href) =>
   `[![${label}](https://img.shields.io/badge/${encodeURIComponent(label)}-${color}?style=for-the-badge&logo=${logo}&logoColor=white)](${href})`;
 
 const contact = [
-  badge('abrilcodes.com', '6c469f', 'firefox', profile.links.website),
+  badge('abrilcodes.com', theme.primary.replace('#', ''), 'firefox', profile.links.website),
   badge('LinkedIn', '0A66C2', 'linkedin', profile.links.linkedin),
   badge('GitHub', '181717', 'github', profile.links.github),
   badge('Email', 'EA4335', 'gmail', `mailto:${profile.links.email}`),
@@ -75,7 +98,7 @@ for (const f of ['../assets/hero.svg', '../assets/skills.svg', '../assets/termin
     fingerprint.update('missing');
   }
 }
-fingerprint.update(JSON.stringify({ profile, projects, ...stats, generatedAt: null }));
+fingerprint.update(JSON.stringify({ profile, projects, paletteId, ...stats, generatedAt: null }));
 const cacheBust = fingerprint.digest('hex').slice(0, 8);
 const stamp = stats.generatedAt ? stats.generatedAt.slice(0, 10) : 'pending first sync';
 
@@ -87,6 +110,9 @@ const tokens = {
   now: profile.now.map((n) => `- ${n}`).join('\n'),
   projects: projectCards(),
   impact: impactRow(),
+  services: serviceRow(),
+  experience: experienceList(),
+  intro: profile.intro,
   contact,
   education: `${profile.education.degree} — ${profile.education.school} · ${profile.education.period} · GPA ${profile.education.gpa}`,
   spokenLanguages: profile.languages.map((l) => `**${l.name}** (${l.level})`).join(' · '),
