@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg?v=fb01673e" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="assets/hero.svg?v=e07655fc" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
@@ -21,11 +21,7 @@ I design the architecture and write the core of every project I take on: a geolo
 
 ## What I get hired for
 
-<table>
-<tr>
-<td width="33%" valign="top">
-
-#### ◧ Web & SaaS products
+### Web & SaaS products
 
 I build the whole product: database, API, admin panel and frontend. The architecture is defined before the first line of code, typing is strict end to end, and deployment runs on your own infrastructure — no platform lock-in.
 
@@ -34,10 +30,7 @@ I build the whole product: database, API, admin panel and frontend. The architec
 - **Data that holds** — ACID transactions, roles and an audit trail on every operation
 - **Your own infrastructure** — Docker, nginx and CI/CD on your VPS or your cloud
 
-</td>
-<td width="33%" valign="top">
-
-#### ◫ Offline-first mobile apps
+### Offline-first mobile apps
 
 Offline-first synchronization is my specialty. Field apps — logistics, technicians, events, mountain trails — lose signal constantly. Mine store every operation locally, queue it, and sync it in chronological order the moment connectivity returns. The user never sees a network error.
 
@@ -46,10 +39,7 @@ Offline-first synchronization is my specialty. Field apps — logistics, technic
 - **Native where it counts** — Kotlin and Swift when performance or hardware demand it
 - **Proof from the field** — photos, signatures, printed tickets, full traceability
 
-</td>
-<td width="33%" valign="top">
-
-#### ◨ Applied AI & algorithms
+### Applied AI & algorithms
 
 I bring AI in where it moves the number, not where it looks good: agents with strict output validation, models running inside the user's browser at zero API cost, and mathematical engines in C++ for fleet routing and optimization.
 
@@ -58,18 +48,10 @@ I bring AI in where it moves the number, not where it looks good: agents with st
 - **Mathematical optimization** — TSP and VRPTW solved in milliseconds with C++20
 - **Wired into the operation** — the AI connects to your data and processes, not the other way around
 
-</td>
-</tr>
-</table>
-
 ## Selected work
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### [Cappy](https://github.com/DavidAbril411/Capi)
-**Founder & Sole Developer** · 2025 – present
+### [Cappy](https://www.cappy.com.ar) · [source](https://github.com/DavidAbril411/Capi)
+<sub>**Founder & Sole Developer** · 2025 – present</sub>
 
 Geolocated trades marketplace for LATAM. Users describe a problem in plain language and an LLM layer picks the right trade and the best nearby professionals — measured against a custom eval set of real queries.
 
@@ -79,11 +61,8 @@ Geolocated trades marketplace for LATAM. Users describe a problem in plain langu
 
 `React Native (Expo)` `Node.js` `Express` `Drizzle` `PostgreSQL` `PostGIS` `Clerk` `MercadoPago` `Mapbox` `Cloudinary`
 
-</td>
-<td width="50%" valign="top">
-
 ### [Calei — OrionLogistics](https://calei.com.ar)
-**Co-Founder & Technical Lead** · 2025 – present
+<sub>**Co-Founder & Technical Lead** · 2025 – present</sub>
 
 B2B SaaS for delivery and distribution management, in production powering the daily operations of a distribution company.
 
@@ -93,13 +72,8 @@ B2B SaaS for delivery and distribution management, in production powering the da
 
 `Kotlin` `NestJS` `MySQL` `TypeORM` `Next.js` `C++20` `Docker` `nginx`
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
 ### [Hipólito](https://github.com/DavidAbril411/ChatEducativoHipolito)
-**Creator** · 2025
+<sub>**Creator** · 2025</sub>
 
 An educational chat that runs a full language model **inside the browser**. Nothing is sent to an API, inference costs nothing per message, and the student's conversation never leaves their device.
 
@@ -109,11 +83,8 @@ An educational chat that runs a full language model **inside the browser**. Noth
 
 `JavaScript` `Transformers.js` `Node.js`
 
-</td>
-<td width="50%" valign="top">
-
 ### [B2B point-of-sale](https://abrilcodes.com)
-**Architect & Lead Developer** · 2025
+<sub>**Architect & Lead Developer** · 2025</sub>
 
 Sales and inventory system for B2B retail, designed for scale across GCP and Azure, with client-side AI running on the shop's own Android hardware.
 
@@ -123,10 +94,6 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 `Java 21` `Spring Boot` `Next.js` `GCP` `Azure` `TensorFlow Lite`
 
-</td>
-</tr>
-</table>
-
 ### Where I have done it
 
 - **[Abril Codes](https://abrilcodes.com)** — Founder & Lead Developer · <sub>Jan 2025 – present</sub><br/>Boutique studio delivering custom software, cross-platform apps and production AI integrations, with a designer and a software engineer/PM.
@@ -135,64 +102,17 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 ## Impact, in numbers
 
-<table>
-<tr>
-<td align="center" width="33%">
-
-### 95%
-
-**faster route calculation**<br/><sub>C++20 · Vroom + OSRM</sub>
-
-</td>
-<td align="center" width="33%">
-
-### 40%
-
-**less time on the road**<br/><sub>OrionLogistics fleet</sub>
-
-</td>
-<td align="center" width="33%">
-
-### 25%
-
-**fewer operational errors**<br/><sub>offline-first field app</sub>
-
-</td>
-</tr>
-<tr>
-<td align="center" width="33%">
-
-### 20%
-
-**fewer inventory gaps**<br/><sub>B2B POS · Java 21</sub>
-
-</td>
-<td align="center" width="33%">
-
-### 8+
-
-**clients delivered**<br/><sub>freelance since Nov 2021</sub>
-
-</td>
-<td align="center" width="33%">
-
-### 0
-
-**security incidents**<br/><sub>hardened Linux VPS fleet</sub>
-
-</td>
-</tr>
-</table>
+<img src="assets/impact.svg?v=e07655fc" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
 
 ## `gitfetch --profile`
 
-<img src="assets/terminal.svg?v=fb01673e" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="assets/terminal.svg?v=e07655fc" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 <sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
-<img src="assets/skills.svg?v=fb01673e" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="assets/skills.svg?v=e07655fc" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
@@ -248,5 +168,5 @@ skills card above. The stack explorer is live at **[https://davidabril411.github
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>fb01673e</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>e07655fc</code></sub>
 </div>

@@ -5,9 +5,11 @@
   "description": "Generator for the GitHub profile README: data-driven, animated SVG cards with no third-party widget services.",
   "scripts": {
     "stats": "node scripts/gen-stats.mjs",
-    "cards": "node scripts/gen-hero.mjs && node scripts/gen-skills.mjs && node scripts/gen-terminal.mjs",
+    "cards": "node scripts/gen-hero.mjs && node scripts/gen-skills.mjs && node scripts/gen-terminal.mjs && node scripts/gen-impact.mjs",
     "readme": "node scripts/build-readme.mjs",
     "build": "npm run stats && npm run cards && npm run readme"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }

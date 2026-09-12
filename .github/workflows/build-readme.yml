@@ -38,11 +38,7 @@ jobs:
         run: node scripts/gen-stats.mjs
 
       - name: Generate cards and README
-        run: |
-          node scripts/gen-hero.mjs
-          node scripts/gen-skills.mjs
-          node scripts/gen-terminal.mjs
-          node scripts/build-readme.mjs
+        run: npm run cards && npm run readme
 
       - name: Commit if anything changed
         run: |
@@ -62,6 +58,18 @@ jobs:
             fi
             echo "push rejected (attempt $attempt/5) — rebasing onto origin/main"
             git pull --rebase origin main || exit 1
+            # profile/** may have moved while this job was running, so drop
+            # this commit and rebuild from the rebased sources: carrying the
+            # old generated files forward would publish output that no longer
+            # matches its input. --soft keeps the freshly fetched stats.json.
+            git reset --soft HEAD^
+            npm run cards && npm run readme
+            git add README.md assets profile/data/stats.json
+            if git diff --staged --quiet; then
+              echo "the rebased tree already carries these changes — nothing to push"
+              exit 0
+            fi
+            git commit -m "chore(profile): refresh generated README and cards"
             sleep $((attempt * 3))
           done
           echo "could not push after 5 attempts"

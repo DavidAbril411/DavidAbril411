@@ -8,10 +8,16 @@ const H = 300;
 const R = 24;
 
 /* ---------------------------------------------------------------- typing --
- * Every phrase owns a clip rect whose width is driven across the *whole*
- * cycle, so a phrase is naturally clipped to zero width outside its own slot
- * and no opacity juggling is needed. One shared caret follows the active
- * width, which keeps the animation to a single extra element.
+ * Every phrase owns a clip rect whose width is driven across the whole cycle,
+ * and one shared caret follows the active width.
+ *
+ * The clip alone used to carry the whole thing, which broke badly in the
+ * GitHub mobile app: it ignores the animated clipPath, so every phrase
+ * rendered at once, on top of each other. So each phrase also owns a discrete
+ * opacity track, and the *static* attributes spell out a correct first frame —
+ * phrase 0 visible, the rest hidden. A renderer that runs nothing shows one
+ * clean line; one that runs SMIL but drops the clip still shows one phrase at
+ * a time, just without the reveal.
  */
 function typing({ phrases, x, y, size, cycleDur }) {
   const slot = cycleDur / phrases.length;
@@ -51,8 +57,27 @@ function typing({ phrases, x, y, size, cycleDur }) {
         `<animate attributeName="width" values="${vals}" keyTimes="${kt}" dur="${cycleDur}s" repeatCount="indefinite"/>` +
       `</rect></clipPath>`
     );
+    // Discrete opacity: 0 before the slot, 1 inside it, 0 after.
+    const oTimes = [0];
+    const oValues = [i === 0 ? 1 : 0];
+    if (s > 0) {
+      oTimes.push(s / cycleDur);
+      oValues.push(1);
+    }
+    if (s + slot < cycleDur) {
+      oTimes.push((s + slot) / cycleDur);
+      oValues.push(0);
+    }
+    oTimes.push(1);
+    oValues.push(oValues[oValues.length - 1] === 1 ? 1 : 0);
+
     texts.push(
-      `<text x="${x}" y="${y}" clip-path="url(#type${i})" font-family="${t.fontMono}" font-size="${size}" fill="${t.textSoft}">${esc(phrase)}</text>`
+      `<g opacity="${i === 0 ? 1 : 0}">` +
+        `<animate attributeName="opacity" values="${oValues.join(';')}" ` +
+          `keyTimes="${oTimes.map(round).join(';')}" calcMode="discrete" ` +
+          `dur="${cycleDur}s" repeatCount="indefinite"/>` +
+        `<text x="${x}" y="${y}" clip-path="url(#type${i})" font-family="${t.fontMono}" font-size="${size}" fill="${t.textSoft}">${esc(phrase)}</text>` +
+      `</g>`
     );
 
     caretStops.push({ times, values: values.map((v) => x + v) });
@@ -70,7 +95,8 @@ function typing({ phrases, x, y, size, cycleDur }) {
   });
   const sorted = [...merged.entries()].sort((a, b) => a[0] - b[0]);
   const caret =
-    `<rect y="${y - size + 2}" width="2.5" height="${size * 1.06}" rx="1.25" fill="${t.bright}" x="${x}">` +
+    `<rect y="${y - size + 2}" width="2.5" height="${size * 1.06}" rx="1.25" fill="${t.bright}" ` +
+      `x="${round(x + monoWidth(phrases[0], size))}">` +
       `<animate attributeName="x" values="${sorted.map(([, v]) => round(v)).join(';')}" ` +
         `keyTimes="${sorted.map(([k]) => round(k)).join(';')}" dur="${cycleDur}s" repeatCount="indefinite"/>` +
       `<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.45;0.5;0.95;1" dur="1.05s" repeatCount="indefinite"/>` +

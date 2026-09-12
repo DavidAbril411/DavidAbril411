@@ -8,6 +8,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/snake.yml'
+      # A palette change has to reach the snake too, or it keeps the old
+      # colours until the next nightly run.
+      - 'profile/data/theme.json'
 
 permissions:
   contents: write
