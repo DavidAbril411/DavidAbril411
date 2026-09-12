@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg?v=ff301a13" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="assets/hero.svg?v=fb01673e" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
@@ -186,13 +186,13 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 ## `gitfetch --profile`
 
-<img src="assets/terminal.svg?v=ff301a13" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="assets/terminal.svg?v=fb01673e" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 <sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
-<img src="assets/skills.svg?v=ff301a13" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="assets/skills.svg?v=fb01673e" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
@@ -248,5 +248,5 @@ skills card above. The stack explorer is live at **[https://davidabril411.github
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>ff301a13</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>fb01673e</code></sub>
 </div>
