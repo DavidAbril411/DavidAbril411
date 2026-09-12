@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg?v=816f6a6f" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="assets/hero.svg?v=1e625ae8" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
@@ -117,11 +117,11 @@ Property rental platform. A year of professional full-stack work in an Agile cro
 
 ## `gitfetch --profile`
 
-<img src="assets/terminal.svg?v=816f6a6f" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="assets/terminal.svg?v=1e625ae8" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 ## What I actually ship with
 
-<img src="assets/skills.svg?v=816f6a6f" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="assets/skills.svg?v=1e625ae8" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
@@ -177,5 +177,5 @@ skills card above.
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync pending first sync · build <code>816f6a6f</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>1e625ae8</code></sub>
 </div>
