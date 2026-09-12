@@ -75,7 +75,9 @@ const contact = [
 // Cache-bust on *content*, not on wall-clock time: a scheduled build that
 // finds nothing new must leave README.md byte-identical so it never commits.
 const fingerprint = createHash('sha256');
-for (const f of ['../assets/hero.svg', '../assets/skills.svg', '../assets/terminal.svg', '../assets/impact.svg']) {
+// snake.svg is committed by a different workflow, but it belongs in the
+// fingerprint too: the cache-busting token is what makes camo re-fetch it.
+for (const f of ['../assets/hero.svg', '../assets/skills.svg', '../assets/terminal.svg', '../assets/impact.svg', '../assets/snake.svg']) {
   try {
     fingerprint.update(readFileSync(new URL(f, import.meta.url)));
   } catch {
@@ -85,6 +87,20 @@ for (const f of ['../assets/hero.svg', '../assets/skills.svg', '../assets/termin
 fingerprint.update(JSON.stringify({ profile, projects, paletteId, ...stats, generatedAt: null }));
 const cacheBust = fingerprint.digest('hex').slice(0, 8);
 const stamp = stats.generatedAt ? stats.generatedAt.slice(0, 10) : 'pending first sync';
+
+/* Images must be referenced by their ABSOLUTE raw.githubusercontent.com URL,
+ * never by a relative path.
+ *
+ * GitHub treats the two completely differently. An external URL is rewritten
+ * to camo.githubusercontent.com, which is in the page's img-src allowlist and
+ * serves a clean image. A relative path is rewritten to
+ * /OWNER/REPO/raw/BRANCH/... instead, which 302s straight to
+ * raw.githubusercontent.com with `Content-Security-Policy: ... sandbox` — and
+ * the browser renders nothing. Every image in this README broke that way,
+ * including the snake, which this repo does not even generate. It is also why
+ * every stats and snake project documents an absolute raw URL. */
+const BRANCH = process.env.PROFILE_BRANCH || 'main';
+const assetBase = `https://raw.githubusercontent.com/${profile.handle}/${profile.handle}/${BRANCH}/assets`;
 
 const tokens = {
   name: profile.name,
@@ -103,6 +119,7 @@ const tokens = {
   repos: num(stats.publicRepos),
   contributions: num(stats.contributionsLastYear),
   v: cacheBust,
+  assets: assetBase,
   stamp,
   pagesLink: profile.links.pages
     ? `The stack explorer is live at **[${profile.links.pages}](${profile.links.pages})**.`
