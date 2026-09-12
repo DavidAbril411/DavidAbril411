@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg?v=e07655fc" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="assets/hero.svg?v=1e09747c" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
@@ -102,17 +102,17 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 ## Impact, in numbers
 
-<img src="assets/impact.svg?v=e07655fc" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
+<img src="assets/impact.svg?v=1e09747c" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
 
 ## `gitfetch --profile`
 
-<img src="assets/terminal.svg?v=e07655fc" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="assets/terminal.svg?v=1e09747c" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 <sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
-<img src="assets/skills.svg?v=e07655fc" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="assets/skills.svg?v=1e09747c" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
@@ -168,5 +168,5 @@ skills card above. The stack explorer is live at **[https://davidabril411.github
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>e07655fc</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>1e09747c</code></sub>
 </div>
