@@ -1,23 +1,61 @@
 {
-  "active": "violet",
+  "active": "brand",
   "palettes": {
     "violet": {
       "label": "Glass violet — descended from the stack app",
-      "bg0": "#0d0817", "bg1": "#191033", "bg2": "#241546",
-      "primary": "#6c469f", "secondary": "#927ac4", "bright": "#a78bfa", "hover": "#825ad1",
-      "cyan": "#7dd3fc", "pink": "#f0abfc", "teal": "#5eead4",
-      "termBg0": "#0b0714", "termBg1": "#150d2b",
-      "blobA": "#6c469f", "blobB": "#3b2a6b", "blobC": "#4c1d95",
-      "snake": { "snake": "a78bfa", "dots": ["140d28", "4c1d95", "6c469f", "927ac4", "c4b5fd"] }
+      "bg0": "#0d0817",
+      "bg1": "#191033",
+      "bg2": "#241546",
+      "primary": "#6c469f",
+      "secondary": "#927ac4",
+      "bright": "#a78bfa",
+      "hover": "#825ad1",
+      "cyan": "#7dd3fc",
+      "pink": "#f0abfc",
+      "teal": "#5eead4",
+      "termBg0": "#0b0714",
+      "termBg1": "#150d2b",
+      "blobA": "#6c469f",
+      "blobB": "#3b2a6b",
+      "blobC": "#4c1d95",
+      "snake": {
+        "snake": "a78bfa",
+        "dots": [
+          "140d28",
+          "4c1d95",
+          "6c469f",
+          "927ac4",
+          "c4b5fd"
+        ]
+      }
     },
     "brand": {
       "label": "Abril Codes blue — matches abrilcodes.com",
-      "bg0": "#05061c", "bg1": "#0b1038", "bg2": "#131a5e",
-      "primary": "#2a34c9", "secondary": "#4d59e8", "bright": "#7c8cff", "hover": "#5b6bff",
-      "cyan": "#38bdf8", "pink": "#a78bfa", "teal": "#2dd4bf",
-      "termBg0": "#04051a", "termBg1": "#0a0f33",
-      "blobA": "#2a34c9", "blobB": "#1b2470", "blobC": "#3730a3",
-      "snake": { "snake": "7c8cff", "dots": ["0a0f33", "1e2a8a", "2a34c9", "4d59e8", "a5b4ff"] }
+      "bg0": "#05061c",
+      "bg1": "#0b1038",
+      "bg2": "#131a5e",
+      "primary": "#2a34c9",
+      "secondary": "#4d59e8",
+      "bright": "#7c8cff",
+      "hover": "#5b6bff",
+      "cyan": "#38bdf8",
+      "pink": "#a78bfa",
+      "teal": "#2dd4bf",
+      "termBg0": "#04051a",
+      "termBg1": "#0a0f33",
+      "blobA": "#2a34c9",
+      "blobB": "#1b2470",
+      "blobC": "#3730a3",
+      "snake": {
+        "snake": "7c8cff",
+        "dots": [
+          "0a0f33",
+          "1e2a8a",
+          "2a34c9",
+          "4d59e8",
+          "a5b4ff"
+        ]
+      }
     }
   }
 }

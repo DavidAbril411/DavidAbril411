@@ -1,5 +1,5 @@
 import { writeFileSync, readFileSync } from 'node:fs';
-import { theme as t, esc, monoWidth, round } from './lib/theme.mjs';
+import { theme as t, esc, monoWidth, round, MONO_ADVANCE } from './lib/theme.mjs';
 
 const base = new URL('../profile/data/', import.meta.url);
 const profile = JSON.parse(readFileSync(new URL('profile.json', base), 'utf8'));
@@ -80,12 +80,16 @@ if (stats.languages?.length) {
       return seg;
     })
     .join('');
+  // Spread the legend across the ribbon's own width so the last language can
+  // never fall off the card, however many there are.
+  const slot = barW / stats.languages.length;
+  const legendFs = Math.min(11.5, (slot - 18) / (Math.max(...stats.languages.map((l) => `${l.name} ${l.pct}%`.length)) * MONO_ADVANCE));
   const legend = stats.languages
     .map((l, i) => {
-      const lx = i * 160;
+      const lx = round(i * slot);
       return `<g transform="translate(${lx} 28)">` +
         `<circle cx="4" cy="-4" r="4" fill="${l.color}"/>` +
-        `<text x="14" y="0" font-family="${t.fontMono}" font-size="11.5" fill="${t.muted}">${esc(l.name)} ${l.pct}%</text>` +
+        `<text x="14" y="0" font-family="${t.fontMono}" font-size="${round(legendFs)}" fill="${t.muted}">${esc(l.name)} ${l.pct}%</text>` +
       `</g>`;
     })
     .join('');

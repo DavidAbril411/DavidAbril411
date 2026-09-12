@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="assets/hero.svg?v=06670dae" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="assets/hero.svg?v=aa5b3a58" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
 
-[![abrilcodes.com](https://img.shields.io/badge/abrilcodes.com-6c469f?style=for-the-badge&logo=firefox&logoColor=white)](https://abrilcodes.com)&nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/david-abril-perrig)&nbsp;[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DavidAbril411)&nbsp;[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:davidabril411@gmail.com)
+[![abrilcodes.com](https://img.shields.io/badge/abrilcodes.com-2a34c9?style=for-the-badge&logo=firefox&logoColor=white)](https://abrilcodes.com)&nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/david-abril-perrig)&nbsp;[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DavidAbril411)&nbsp;[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:davidabril411@gmail.com)
 
 </div>
 
@@ -186,13 +186,13 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 ## `gitfetch --profile`
 
-<img src="assets/terminal.svg?v=06670dae" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="assets/terminal.svg?v=aa5b3a58" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 <sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
-<img src="assets/skills.svg?v=06670dae" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="assets/skills.svg?v=aa5b3a58" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
@@ -248,5 +248,5 @@ skills card above. The stack explorer is live at **[https://davidabril411.github
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>06670dae</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-12 · build <code>aa5b3a58</code></sub>
 </div>
