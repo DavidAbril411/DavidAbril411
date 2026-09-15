@@ -109,6 +109,9 @@ const tokens = {
   tagline: profile.tagline,
   now: profile.now.map((n) => `- ${n}`).join('\n'),
   projects: projectSections(),
+  // Generated from the data so the alt text can never drift from the card,
+  // which is exactly how a stale claim survived a correction once already.
+  impactAlt: projects.impact.map((i) => `${i.value} ${i.label}`).join(', '),
   services: serviceSections(),
   experience: experienceList(),
   intro: profile.intro,

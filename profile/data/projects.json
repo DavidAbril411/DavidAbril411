@@ -136,7 +136,7 @@
       "org": "Self-employed",
       "role": "Freelance Developer & Electronic Technician",
       "period": "Nov 2021 – present",
-      "note": "8+ clients over 2–4 month project lifecycles; hardened Linux VPS fleets with zero security incidents.",
+      "note": "Electronics technician turned developer. Self-hosted the Linux infrastructure behind the products above — Docker, nginx, firewalls and SSH-key access on my own VPS.",
       "url": ""
     }
   ],
@@ -159,17 +159,17 @@
     {
       "value": "20%",
       "label": "fewer inventory gaps",
-      "detail": "B2B POS · Java 21"
+      "detail": "B2B point-of-sale"
     },
     {
-      "value": "8+",
-      "label": "clients delivered",
-      "detail": "freelance since Nov 2021"
+      "value": "50+",
+      "label": "features in production",
+      "detail": "Calei · multi-tenant"
     },
     {
-      "value": "0",
-      "label": "security incidents",
-      "detail": "hardened Linux VPS fleet"
+      "value": "1",
+      "label": "paying client, daily use",
+      "detail": "Calei, in production"
     }
   ]
 }

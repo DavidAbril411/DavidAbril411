@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/hero.svg?v=f51b73a9" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/hero.svg?v=eea21cba" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
@@ -98,27 +98,27 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 - **[Abril Codes](https://abrilcodes.com)** — Founder & Lead Developer · <sub>Jan 2025 – present</sub><br/>Boutique studio delivering custom software, cross-platform apps and production AI integrations, with a designer and a software engineer/PM.
 - **[Mindfactory — ApartaMe](https://www.apartame.co/welcome)** — Software Developer (internship → traineeship) · <sub>Jun 2024 – Jun 2025</sub><br/>A year of professional full-stack work on a property rental platform: Next.js frontends, NestJS APIs with strict DTO validation, AWS S3 hardened with IAM, and SQL tuning that cut latency on complex searches.
-- **Self-employed** — Freelance Developer & Electronic Technician · <sub>Nov 2021 – present</sub><br/>8+ clients over 2–4 month project lifecycles; hardened Linux VPS fleets with zero security incidents.
+- **Self-employed** — Freelance Developer & Electronic Technician · <sub>Nov 2021 – present</sub><br/>Electronics technician turned developer. Self-hosted the Linux infrastructure behind the products above — Docker, nginx, firewalls and SSH-key access on my own VPS.
 
 ## Impact, in numbers
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/impact.svg?v=f51b73a9" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/impact.svg?v=eea21cba" alt="Impact in numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 50+ features in production, 1 paying client, daily use" width="100%">
 
 ## `gitfetch --profile`
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/terminal.svg?v=f51b73a9" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/terminal.svg?v=eea21cba" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 <sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/skills.svg?v=f51b73a9" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/skills.svg?v=eea21cba" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
 ## Contributions
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/snake.svg?v=f51b73a9" alt="Snake eating my GitHub contribution graph" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/snake.svg?v=eea21cba" alt="Snake eating my GitHub contribution graph" width="100%">
 
 ## How I work
 
@@ -168,5 +168,5 @@ skills card above. The stack explorer is live at **[https://davidabril411.github
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-14 · build <code>f51b73a9</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-09-14 · build <code>eea21cba</code></sub>
 </div>
