@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/hero.svg?v=6a10977d" alt="David Abril Perrig — Full-Stack Developer" width="100%">
+  <img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/hero.svg?v=e4203a76" alt="David Abril Perrig — Full-Stack Developer" width="100%">
 </div>
 
 <div align="center">
@@ -102,23 +102,23 @@ Sales and inventory system for B2B retail, designed for scale across GCP and Azu
 
 ## Impact, in numbers
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/impact.svg?v=6a10977d" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/impact.svg?v=e4203a76" alt="Six impact numbers: 95% faster route calculation, 40% less time on the road, 25% fewer operational errors, 20% fewer inventory gaps, 8+ clients delivered, zero security incidents" width="100%">
 
 ## `gitfetch --profile`
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/terminal.svg?v=6a10977d" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/terminal.svg?v=e4203a76" alt="Terminal-style summary of David Abril Perrig's GitHub profile" width="100%">
 
 <sub>The language ribbon reflects my <b>public</b> repositories only — most production work (Cappy, Calei, client systems) lives in private repos, so treat it as a sample, not as a skill profile.</sub>
 
 ## What I actually ship with
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/skills.svg?v=6a10977d" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/skills.svg?v=e4203a76" alt="Skills grouped by domain: frontend and mobile, backend and APIs, data and infra, AI engineering" width="100%">
 
 <sub>Bars are honest: <b>daily / production</b> means I work in it most weeks, <b>shipped with</b> means it is in something real that users touch, <b>working knowledge</b> means I can be productive in it but would not call myself an expert.</sub>
 
 ## Contributions
 
-<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/snake.svg?v=6a10977d" alt="Snake eating my GitHub contribution graph" width="100%">
+<img src="https://raw.githubusercontent.com/DavidAbril411/DavidAbril411/main/assets/snake.svg?v=e4203a76" alt="Snake eating my GitHub contribution graph" width="100%">
 
 ## How I work
 
@@ -168,5 +168,5 @@ skills card above. The stack explorer is live at **[https://davidabril411.github
 </details>
 
 <div align="center">
-<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-10-03 · build <code>6a10977d</code></sub>
+<sub>Generated from <code>profile/data</code> · last GitHub sync 2026-10-04 · build <code>e4203a76</code></sub>
 </div>
