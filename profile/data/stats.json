@@ -1,12 +1,12 @@
 {
   "login": "DavidAbril411",
-  "generatedAt": "2026-10-12T13:11:36.426Z",
+  "generatedAt": "2026-10-12T23:37:36.008Z",
   "since": "2025-03-19",
   "followers": 1,
-  "publicRepos": 17,
+  "publicRepos": 18,
   "stars": 1,
   "forks": 0,
-  "contributionsLastYear": 547,
+  "contributionsLastYear": 548,
   "commitsLastYear": 112,
   "pullRequests": 16,
   "issues": 2,
@@ -48,6 +48,10 @@
       "stars": 1
     },
     {
+      "name": "mascotas-cordoba",
+      "stars": 0
+    },
+    {
       "name": "AutonomousAgenticSystem",
       "stars": 0
     },
@@ -57,10 +61,6 @@
     },
     {
       "name": "pdc",
-      "stars": 0
-    },
-    {
-      "name": "MisCuentas",
       "stars": 0
     }
   ]
