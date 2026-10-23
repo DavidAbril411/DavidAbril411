@@ -1,14 +1,14 @@
 {
   "login": "DavidAbril411",
-  "generatedAt": "2026-10-19T21:32:36.839Z",
+  "generatedAt": "2026-10-23T10:05:54.084Z",
   "since": "2025-03-19",
   "followers": 1,
-  "publicRepos": 18,
+  "publicRepos": 19,
   "stars": 1,
   "forks": 0,
-  "contributionsLastYear": 551,
-  "commitsLastYear": 128,
-  "pullRequests": 24,
+  "contributionsLastYear": 555,
+  "commitsLastYear": 129,
+  "pullRequests": 26,
   "issues": 2,
   "languages": [
     {
@@ -48,6 +48,10 @@
       "stars": 1
     },
     {
+      "name": "hora-de-aventura",
+      "stars": 0
+    },
+    {
       "name": "mascotas-cordoba",
       "stars": 0
     },
@@ -57,10 +61,6 @@
     },
     {
       "name": "wonsfo",
-      "stars": 0
-    },
-    {
-      "name": "pdc",
       "stars": 0
     }
   ]
