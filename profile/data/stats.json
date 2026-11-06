@@ -1,51 +1,55 @@
 {
   "login": "DavidAbril411",
-  "generatedAt": "2026-11-02T13:32:02.365Z",
+  "generatedAt": "2026-11-06T22:07:45.119Z",
   "since": "2025-03-19",
   "followers": 1,
-  "publicRepos": 19,
+  "publicRepos": 20,
   "stars": 1,
   "forks": 0,
-  "contributionsLastYear": 573,
-  "commitsLastYear": 105,
-  "pullRequests": 27,
+  "contributionsLastYear": 578,
+  "commitsLastYear": 107,
+  "pullRequests": 29,
   "issues": 2,
   "languages": [
     {
       "name": "TypeScript",
       "color": "#3178c6",
-      "pct": 27.9
+      "pct": 27
     },
     {
       "name": "JavaScript",
       "color": "#f1e05a",
-      "pct": 24.6
+      "pct": 23.8
     },
     {
       "name": "HTML",
       "color": "#e34c26",
-      "pct": 15.9
+      "pct": 16
     },
     {
       "name": "Python",
       "color": "#3572A5",
-      "pct": 11.4
+      "pct": 13.4
     },
     {
       "name": "Java",
       "color": "#b07219",
-      "pct": 11.2
+      "pct": 10.8
     },
     {
       "name": "CSS",
       "color": "#663399",
-      "pct": 4.9
+      "pct": 4.7
     }
   ],
   "topRepos": [
     {
       "name": "LibroHipolito",
       "stars": 1
+    },
+    {
+      "name": "planificador-de-tareas",
+      "stars": 0
     },
     {
       "name": "hora-de-aventura",
@@ -57,10 +61,6 @@
     },
     {
       "name": "AutonomousAgenticSystem",
-      "stars": 0
-    },
-    {
-      "name": "wonsfo",
       "stars": 0
     }
   ]
