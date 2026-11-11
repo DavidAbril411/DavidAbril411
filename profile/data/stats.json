@@ -1,45 +1,45 @@
 {
   "login": "DavidAbril411",
-  "generatedAt": "2026-11-11T12:44:15.782Z",
+  "generatedAt": "2026-11-11T23:28:15.946Z",
   "since": "2025-03-19",
   "followers": 1,
   "publicRepos": 20,
   "stars": 1,
   "forks": 0,
-  "contributionsLastYear": 569,
-  "commitsLastYear": 107,
-  "pullRequests": 29,
+  "contributionsLastYear": 573,
+  "commitsLastYear": 110,
+  "pullRequests": 30,
   "issues": 2,
   "languages": [
     {
       "name": "TypeScript",
       "color": "#3178c6",
-      "pct": 27
+      "pct": 28.6
     },
     {
       "name": "JavaScript",
       "color": "#f1e05a",
-      "pct": 23.8
+      "pct": 23
     },
     {
       "name": "HTML",
       "color": "#e34c26",
-      "pct": 16
+      "pct": 15.4
     },
     {
       "name": "Python",
       "color": "#3572A5",
-      "pct": 13.4
+      "pct": 12.9
     },
     {
       "name": "Java",
       "color": "#b07219",
-      "pct": 10.8
+      "pct": 10.5
     },
     {
       "name": "CSS",
       "color": "#663399",
-      "pct": 4.7
+      "pct": 5.5
     }
   ],
   "topRepos": [
